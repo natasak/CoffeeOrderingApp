@@ -26,8 +26,11 @@ public class MainActivity extends AppCompatActivity {
         CheckBox whippedCreamCheckbox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
         boolean hasWhippedCream = whippedCreamCheckbox.isChecked();
 
+        CheckBox chocolateCheckbox = (CheckBox) findViewById(R.id.chocolate_checkbox);
+        boolean hasChocolate = chocolateCheckbox.isChecked();
+
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price, hasWhippedCream));
+        displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate));
     }
 
     /**
@@ -35,10 +38,11 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param price of the order
      * @param addWhippedCream is whether or not the user wants to add whipped cream or not
+     * @param addChocolate is whether or not the user wants to add chocolate or not
      * @return text summary
      */
-    private String createOrderSummary(int price, boolean addWhippedCream) {
-        String priceMessage = "Name: Natasa Mori" + "\nAdd whipped cream? " + addWhippedCream + "\nQuantity: " + quantity + "\nTotal: " + price + "€" + "\nThank you!";
+    private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate) {
+        String priceMessage = "Name: Natasa Mori" + "\nAdd whipped cream? " + addWhippedCream +  "\nAdd chocolate? " + addChocolate + "\nQuantity: " + quantity + "\nTotal: " + price + "€" + "\nThank you!";
         return priceMessage;
 
     }
