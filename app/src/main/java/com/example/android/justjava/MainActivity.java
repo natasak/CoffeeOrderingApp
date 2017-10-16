@@ -1,5 +1,7 @@
 package com.example.android.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -39,7 +41,27 @@ public class MainActivity extends AppCompatActivity {
         String name = nameText.getText().toString();
 
         int price = calculatePrice(hasWhippedCream, hasChocolate);
-        displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate, name));
+
+        //Don't display order summary on the screen
+        //displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate, name));
+
+        //compose email with order summary
+        String subject = "Just Java order for " + name;
+        String priceMessage = createOrderSummary(price, hasWhippedCream, hasChocolate, name);
+        composeEmail(subject, priceMessage);
+    }
+
+    /**
+     * This method opens the email app and display subject and order summary.
+     */
+    public void composeEmail(String subject, String text) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     /**
@@ -111,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * This method displays the given quantity value on the screen.
      */
@@ -123,9 +144,12 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method displays the given text on the screen.
-     */
+     * DEPRECATED: don't display order summary on the screen
+
     private void displayMessage(String message) {
         TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
         orderSummaryTextView.setText(message);
     }
+     */
+
 }
