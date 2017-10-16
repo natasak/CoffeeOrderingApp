@@ -2,4 +2,5 @@
     <string name="app_name">Just Java</string>
     <string name="chk_whipped_cream">Whipped cream</string>
     <string name="chk_chocolate">Chocolate</string>
+    <string name="enter_text">Name</string>
 </resources>
