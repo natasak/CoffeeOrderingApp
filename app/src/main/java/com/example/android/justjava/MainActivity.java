@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         EditText nameText = (EditText) findViewById(R.id.name_field);
         String name = nameText.getText().toString();
 
-        int price = calculatePrice();
+        int price = calculatePrice(hasWhippedCream, hasChocolate);
         displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate, name));
     }
 
@@ -58,11 +58,24 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Calculates the price of the order.
-     *
+     * @param addWhippedCream if user wants whipped cream as extra
+     * @param addChocolate if user want chocolate as extra
      * @return the total price
      */
-    private int calculatePrice() {
-        return (quantity * 5);
+    private int calculatePrice(boolean addWhippedCream, boolean addChocolate) {
+        // initial price
+        int basePrice = 5;
+
+        //added 1 euro for whipped cream to base price
+        if (addWhippedCream) {
+            basePrice = basePrice + 1;
+        }
+        //add 2 euro for chocolate to base price
+        if (addChocolate) {
+            basePrice = basePrice + 2;
+        }
+        //calculate the total price by multiplying by quantity
+        return quantity * basePrice;
     }
 
     /**
