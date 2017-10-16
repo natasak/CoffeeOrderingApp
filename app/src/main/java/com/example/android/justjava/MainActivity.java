@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         //displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate, name));
 
         //compose email with order summary
-        String subject = "Just Java order for " + name;
+        String subject = getString(R.string.email_subject, name);
         String priceMessage = createOrderSummary(price, hasWhippedCream, hasChocolate, name);
         composeEmail(subject, priceMessage);
     }
@@ -74,7 +74,13 @@ public class MainActivity extends AppCompatActivity {
      * @return text summary
      */
     private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate, String name) {
-        String priceMessage = "Name: " + name + "\nAdd whipped cream? " + addWhippedCream +  "\nAdd chocolate? " + addChocolate + "\nQuantity: " + quantity + "\nTotal: " + price + "€" + "\nThank you!";
+        String priceMessage = getString(R.string.order_summary_name,name);
+        priceMessage += "\n" + getString(R.string.order_summary_whipped_cream,addWhippedCream);
+        priceMessage +=  "\n" + getString(R.string.order_summary_chocolate,addChocolate);
+        priceMessage += "\n" + getString(R.string.order_summary_quantity,quantity);
+        // for local currency: NumberFormat.getCurrencyInstance().format(price), but it works form API 24 on
+        priceMessage += "\n" + getString(R.string.order_summary_price, price);
+        priceMessage += "\n" + getString(R.string.thank_you);
         return priceMessage;
 
     }
@@ -108,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         //quantity cannot go above 100 cups
         if (quantity >= 100) {
             //toast - display an error and finish the method
-            Toast.makeText(this, "MAX no. of cups is 100", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.max_error), Toast.LENGTH_SHORT).show();
             return;
         } else {
             quantity = quantity + 1;
@@ -124,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         //quantity cannot go below 1 cup
         if (quantity <= 1) {
             //toast - display an error and finish the method
-            Toast.makeText(this, "MIN no. of cups is 1", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.min_error), Toast.LENGTH_SHORT).show();
             return;
         } else {
             quantity = quantity - 1;

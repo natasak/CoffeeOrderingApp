@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Just Java</string>
+    <string name="btn_order">Naročilo</string>
+    <string name="chk_chocolate">Čokolada</string>
+    <string name="chk_whipped_cream">Smetana</string>
+    <string name="email_subject">Just Java naročilo za: <xliff:g id="name">%s</xliff:g></string>
+    <string name="enter_text">Ime</string>
+    <string name="hello_world">Pozdravljen svet!</string>
+    <string name="max_error">MAX št. je 100</string>
+    <string name="min_error">MIN št. je 1</string>
+    <string name="order_summary_chocolate">Dodaj čokolado? <xliff:g id="addChocolate">%b</xliff:g></string>
+    <string name="order_summary_name">Ime: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="order_summary_price">Skupaj: <xliff:g id="price">%s</xliff:g> €</string>
+    <string name="order_summary_quantity">Količina: <xliff:g id="quantity">%d</xliff:g></string>
+    <string name="order_summary_whipped_cream">Dodaj smetano? <xliff:g id="addWhippedCream">%b</xliff:g></string>
+    <string name="text_quantity">Količina</string>
+    <string name="text_toppings">Dodatki</string>
+    <string name="thank_you">Hvala!</string>
+</resources>
