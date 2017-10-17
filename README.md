@@ -18,7 +18,7 @@ Pink color palette with light blue accent :)
 Screenshots
 -----------
 
-![app's UI](https://github.com/natasak/CoffeeOrderingApp/blob/master/screenshots/JustJava_english.png)
-![order summary](https://github.com/natasak/CoffeeOrderingApp/blob/master/screenshots/JustJava_compose_email.png)
-![slovene version](https://github.com/natasak/CoffeeOrderingApp/blob/master/screenshots/JustJava_slovene.png)
+![app's UI](https://github.com/natasak/CoffeeOrderingApp/blob/master/screenshots/english.png)
+![order summary](https://github.com/natasak/CoffeeOrderingApp/blob/master/screenshots/compose_email.png)
+![slovene version](https://github.com/natasak/CoffeeOrderingApp/blob/master/screenshots/slovene.png)
 
